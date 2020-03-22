@@ -5,9 +5,9 @@ module.exports = function check(str, bracketsConfig) {
   let strArrControl=[];
   let strArr=[];
   strArr=str.split('');
-  console.log(strArr);
-  
  
+  
+  
   for (j=0;j<bracketsConfig.length;j++){
       
       
@@ -15,22 +15,32 @@ module.exports = function check(str, bracketsConfig) {
               
               
               if(strArr[i]==bracketsConfig[j][0]||strArr[i]==bracketsConfig[j][1]){
-                c
+               
                 strArrControl.push(strArr[i]);
+
               }
+             
+
             }
       
       if (strArrControl.length%2!==0){return false};
+   
+      let r=0; 
+      let u=strArrControl.length;
+          while (strArrControl.length!==0){
+             
+              for (let i=1;i<strArrControl.length;i++){
+                 
   
-  
-      while (strArrControl.length ==0){
-          for (i=1;i<strArrControl.length;i++){
-            if(strArrControl[i]==strArrControlr[i-1]){
-              strArrControl.splice(i-1, 2);
-            }else{return false};
-  
-            
-      }
+                if(strArrControl[i-1]==bracketsConfig[j][0]&&strArrControl[i]==bracketsConfig[j][1]){
+                  strArrControl.splice(i-1, 2);
+                  
+                }
+      
+                
+          }
+          r=r+1;
+      if (r>u)   { return false} 
       }
   }
   return true
@@ -38,4 +48,5 @@ module.exports = function check(str, bracketsConfig) {
     
     // your solution
   }
+  
   
